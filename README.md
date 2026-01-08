@@ -1,5 +1,5 @@
-# CEE690: Software Engineering for Spatial Data Analysis
-## Fall 2025
+# CEE690: Software Engineering for Earth and Environemental Sciences and Engineering
+## Spring 2026
 
 ## Course Information
 Lectures are on Tuesdays and Thursdays from 10:15 AM - 11:30 AM. The course website is on GitHub (https://github.com/chaneyn/CEE690). Class announcements will be made via Canvas (CEE 690.01.Sp26).
@@ -10,90 +10,52 @@ Email: nathaniel.chaney@duke.edu
 Office: FCIEMAS 2463  
 Office hours: TBD
 
-### TA
-Daniel Guyumus Preciado  
-Email: daniel.guyumus.preciado@duke.edu  
-Office hours location: FCIEMAS 2431  
-Office hours: Fridays 10am-12pm
-
-Cameron Moore  
-Email: cameron.moore@duke.edu  
-Office hours location: FCIEMAS 2431  
-Office hours: Mondays 3-5pm
-
 ## Course Description
-Environmental Spatial Data Analysis (ESDA) provides an introduction on how to leverage large volumes of spatial environmental data using primarily Python. The topics that will be covered include an overview of basic spatial statistics, spatial interpolation, kriging, conditional simulation, terrain analysis, dimensionality reduction, and spatial prediction. Existing software packages in Python will be introduced and used to explore the listed topics. 
+This course will equip students to build and deploy high-performance simulation tools for large-scale environmental challenges. The topics that will be covered include high performance computing, scripting at the terminal, text editors, building modular code, compiled and scripted languages, profiling, unit-testing, documentation, and parallelism via OpenMP, MPI, and CUDA. Other topics will include briding high-level Python logic with low-level hardware.
 
 ## Prerequisites
-Although there are no class prerequisistes, a strong foundation in programming will make this class much easier. Please contact Nate if you have concerns. 
+CEE 506: Environmental Spatial Data Analysis is a prerequisite. If you have not taken CEE 506, please contact Nate to determine if this course is appropriate for you.
 
 ## Readings
-There are no required textbooks. Reading will be provided via journal articles, online materials, and tutorials.
+There are no required textbooks.
 
 ## Grades and workload
-The course grade is based on three items:
-* Homework: 55%
-* Final Project: 25%
-* Quizzes: 10%
-* Participation: 10%
-
+The course grade will be based on:
+* Homework: 30%
+* Project I: 35%
+* Project II: 35%
 
 ### Homework
-There will be 4 homework assignments. Each assignment will be provided and completed within a corresponding Jupyter notebook. Completed assignments will be submitted via a private GitHub repository that each student will have for the course; assignments submitted via any other method will not be accepted. Each assignment must be submitted by 11:59 pm on the day listed on the schedule below. If it is not turned in on time, there will be a 10% deduction for each day that it is late; this deduction applies at 00:00 am of each late day. 
+TBD
 
-### Quizzes
-There will be 4 quizzes; one after each homework assignment is due. These 30 min quizzes will be closed book/closed notes and will be based around the previous homework. You are expected to write pseudo-code in Python to answer the questions.  
-
-### Participation
-* Students should follow along the lecture on their personal jupyter lab Docker container that they will use for the course. 
-
-### Collaboration
-Collaboration in completing assignments is permitted. However, each student must write up their assignment independently. We **will** be checking for identical homeworks. 
-
-### Final Project
-The final project can be done in groups or individually. The expectations for the project will increase with the group size. It will involve the following components:
-* Proposal (11/04 via email)
-  * 3 pages max, single-spaced, 12 point font size, 1 inch margin
-  * Contains: Title, introduction, objectives, data, methodology, and timeline of tasks
-* Oral presentation (12/2-12/4 in class)
-  * 12 minute oral presentation, 3 minutes for questions
-  * Everyone needs to be present for each presentation
-* Final report (12/15 via email)
-  * 10 pages max, single-spaced, 12 point font size, 1 inch margin
-  * Contains: Title, introduction, data, methods, results, discussion, and conclusion
-  
 ### Schedule
-Note that the schedule is subject to change.
+Note that the schedule is subject to change (and will change).
 
-|Date|Topic|New Software|Assignments|
-|:-:|:-:|:-:|:-:|
-|08/26|[Introduction](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/Introduction.pdf)|Jupyter/GitHub/Bash|-|
-|08/28|[Python overview](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/Python_Overview.ipynb)|Python|-| 
-|09/02|[Multi-dimensional arrays I](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/Numpy.ipynb)|NumPy|HW #0 due|
-|09/04|[Probability/Statistics I](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/Intro2ProbabilityI.ipynb)|Scipy|-|
-|09/09|[Visualizing data](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/Visualizing_Data.ipynb)|Matplotlib|-|
-|09/11|[Data storage](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/DataStorage.ipynb)|Pickle/H5py/NetCDF/GeoTiff|-|
-|09/16|[Probability/Statistics II](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/Intro2ProbabilityII.ipynb)|-|HW #1 due|
-|09/18|[Bayesian Statistics](https://cee-az-00.oit.duke.edu:50000/notebooks/ESDA_CEE690-02/Lectures/BayesianStatistics.ipynb)|-|-|
-|09/23|[Map projections I](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/MapProjectionsI.ipynb)|Cartopy|-|
-|09/25|[Map projections II](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/MapProjectionsII.ipynb)|GDAL|-|
-|09/30|[Multi-dimensional arrays II](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/MultidimensionalArraysII.ipynb)|CDO/Xarray|-|
-|10/02|[Vector Data](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/VectorData.ipynb)|OGR/Shapely/GeoPandas|-|
-|10/07|[Cluster Analysis I](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/ClusterAnalysisI.ipynb)|Scikit-Learn|HW #2 due|
-|10/09|[Cluster Analysis II](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/ClusterAnalysisII.ipynb)|-|-|
-|10/16|[Dimensionality Reduction](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/DimensionalityReduction.ipynb)|-|-|
-|10/21|[Decision Trees](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/DecisionTrees.ipynb)|-|-|
-|10/23|[Random Forests/Boosting](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/RandomForests.ipynb)|-|-|
-|10/28|Artificial Neural Networks|-|-|
-|10/30|Convolutional Neural Networks|-|-|
-|11/04|[Simple Kriging](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/SimpleKriging.ipynb)|-|HW #3 due|
-|11/06|[Ordinary Kriging](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/OrdinaryKriging.ipynb)|-|**Proposal due**|
-|11/11|[Semivariogram](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/Semivariogram.ipynb)|-|-|
-|11/13|[Regression Kriging](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/RegressionKriging.ipynb)|-|-|
-|11/18|[Terrain Analysis](https://github.com/chaneyn/ESDA_CEE690-02/blob/master/Lectures/TerrainAnalysisI.ipynb)|-|-|
-|11/20|TBD|-|-|
-|11/25|Scaling up code|Numba/Mpi4py/Dask|HW #4 due|
-|12/2|**Oral Presentations**|-|-|-| 
-|12/4|**Oral Presentations**|-|-|-|
-|12/15|**Written report due**|-|-|-| 
->>>>>>> edea2c6187fa5f2711592a68d0769202e68c95de
+|Date|Topic|
+|:-:|:-:|
+|01/08|The headless environment|
+|01/13|Text editors|
+|01/15|Software architecture I|
+|01/20|Software architecture II|
+|01/22|Verification and profiling|
+|01/27|Packaging, automation and documentation|
+|01/29|Computing on spatial grids|
+|02/03|GPU computing in Python|
+|02/05|High-Speed kernels: Numba CPU & CUDA|
+|02/10|Anatomy of an HPC cluster|
+|02/12|Shared memory parallelism I|
+|02/17|Distributed memory parallelism I|
+|02/19|The scheduler|
+|02/24|High-Performance I/O|
+|02/26|Compiled languages I|
+|03/03|Compiled languages II|
+|03/05|The build process|
+|03/17|Memory management and basic debugging|
+|03/19|Tensors in memory and data layout|
+|03/24|Computer architecture and cache|
+|03/26|Code documentation and profiling|
+|03/31|Code interoperability|
+|04/02|Shared memory parallelism II|
+|04/07|Distributed memory parallelism II|
+|04/09|Containers|
+|04/14|TBD|
