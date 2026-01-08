@@ -31,6 +31,7 @@ TBD
 ### Schedule
 Note that the schedule is subject to change (and will change).
 
+**Part I: Python**
 |Date|Topic|
 |:-:|:-:|
 |01/08|The headless environment|
@@ -47,6 +48,10 @@ Note that the schedule is subject to change (and will change).
 |02/17|Distributed memory parallelism I|
 |02/19|The scheduler|
 |02/24|High-Performance I/O|
+
+**Part II: Compiled languages**
+|Date|Topic|
+|:-:|:-:|
 |02/26|Compiled languages I|
 |03/03|Compiled languages II|
 |03/05|The build process|
