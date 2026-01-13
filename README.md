@@ -26,7 +26,7 @@ The course grade will be based on:
 * Project II: 40%
 
 ### Homework
-TBD
+* There will be two homeworks; each one will be due at the same time as each project.
 
 ### Schedule
 Note that the schedule is subject to change (and will change).
