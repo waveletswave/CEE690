@@ -1,4 +1,3 @@
-Vim Script
 " --- Basic Improvements ---
 set nocompatible
 filetype plugin indent on    " Load plugins for specific file types
