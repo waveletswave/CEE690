@@ -1,10 +1,13 @@
 import netCDF4 as nc
 import numpy as np
+import matplotlib
+matplotlib.use('Agg') # Force Matplotlib to not use any X-Windows backend
 import matplotlib.pyplot as plt
 
 # Configuration variables
 INPUT_FILE = 'era_interim_monthly_197901_201512_upscaled_annual.nc'
 OUTPUT_FILE = 'out.nc'
+PLOT_FILE = 'plot.png
 VAR_NAME = 't2m'
 LAT_MIN = 5
 LAT_MAX = 50
@@ -67,9 +70,11 @@ temporal_spatial_mean = np.array(temporal_spatial_mean)
 temporal_spatial_variance = np.array(temporal_spatial_variance)
 
 #Visualize the data
-plt.plot(temporal_spatial_mean)
-plt.plot(temporal_spatial_variance)
-plt.show()
+plt.plot(temporal_spatial_mean, label="Mean")
+plt.plot(temporal_spatial_variance, label="Variance")
+plt.legend()
+plt.savefig(PLOT_FILE)  # Saves directly to disk
+plt.close()
 
 #Output the data to netcdf
 file_pointer_output = nc.Dataset('out.nc','w')
