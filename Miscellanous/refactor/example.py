@@ -4,17 +4,6 @@ import matplotlib
 matplotlib.use('Agg') # Force Matplotlib to not use any X-Windows backend
 import matplotlib.pyplot as plt
 
-# Configuration variables
-INPUT_FILE = 'era_interim_monthly_197901_201512_upscaled_annual.nc'
-OUTPUT_FILE = 'out.nc'
-PLOT_FILE = 'plot.png'
-VAR_NAME = 't2m'
-LAT_MIN = 5
-LAT_MAX = 50
-LON_MIN = 10
-LON_MAX = 100
-TIME_MIN = 0
-TIME_MAX = 10
 
 def calculate_spatial_mean(data,time_min,time_max,lat_min,lat_max,lon_min,lon_max):
 
@@ -88,7 +77,7 @@ def visualize_data(temporal_spatial_mean,temporal_spatial_variance,plot_file):
     plt.plot(temporal_spatial_mean, label="Mean")
     plt.plot(temporal_spatial_variance, label="Variance")
     plt.legend()
-    plt.savefig(PLOT_FILE)  # Saves directly to disk
+    plt.savefig(plot_file)  # Saves directly to disk
     plt.close()
 
     return
@@ -97,7 +86,7 @@ def output_data_to_netcdf(output_file,temporal_spatial_mean,temporal_spatial_var
 
     # Output the data to a netcdf file
     file_pointer_output = nc.Dataset('out.nc','w')
-    file_pointer_output.createDimension('t',TIME_MAX-TIME_MIN)
+    file_pointer_output.createDimension('t',temporal_spatial_mean.shape[0])
 
     var_v1 = file_pointer_output.createVariable('temporal_spatial_mean','f4',('t',))
     var_v1[:] = temporal_spatial_mean
@@ -109,18 +98,48 @@ def output_data_to_netcdf(output_file,temporal_spatial_mean,temporal_spatial_var
 
     return
 
-# Load dataset
-t2m_data = load_dataset(INPUT_FILE,VAR_NAME)
+def main():
 
-# Compute temporal series of spatial mean and spatial standard deviation
-temporal_spatial_mean = calculate_spatial_mean(t2m_data,TIME_MIN,TIME_MAX,
-                                               LAT_MIN,LAT_MAX,LON_MIN,LON_MAX)
-temporal_spatial_variance = calculate_spatial_variance(t2m_data,TIME_MIN,TIME_MAX,
-                                                       LAT_MIN,LAT_MAX,LON_MIN,LON_MAX,
-                                                       temporal_spatial_mean)
+    """
+    The director of the orchestra. When this function is called, it runs the defined
+    sequence of functions. However, it also ensures that other parts of the script can 
+    be accessed without running this.
+    """
 
-#Visualize the data
-visualize_data(temporal_spatial_mean,temporal_spatial_variance,PLOT_FILE)
+    # Configuration variables
+    INPUT_FILE = 'era_interim_monthly_197901_201512_upscaled_annual.nc'
+    OUTPUT_FILE = 'out.nc'
+    PLOT_FILE = 'plot.png'
+    VAR_NAME = 't2m'
+    LAT_MIN = 5
+    LAT_MAX = 50
+    LON_MIN = 10
+    LON_MAX = 100
+    TIME_MIN = 0
+    TIME_MAX = 10
 
-#Output the data to netcdf
-output_data_to_netcdf(OUTPUT_FILE,temporal_spatial_mean,temporal_spatial_variance)
+    # Load dataset
+    print("Loading the dataset")
+    t2m_data = load_dataset(INPUT_FILE,VAR_NAME)
+
+    # Compute temporal series of spatial mean and spatial standard deviation
+    print("Computing the statistics")
+    temporal_spatial_mean = calculate_spatial_mean(t2m_data,TIME_MIN,TIME_MAX,
+                                                   LAT_MIN,LAT_MAX,LON_MIN,LON_MAX)
+    temporal_spatial_variance = calculate_spatial_variance(t2m_data,TIME_MIN,TIME_MAX,
+                                                           LAT_MIN,LAT_MAX,LON_MIN,LON_MAX,
+                                                           temporal_spatial_mean)
+
+    #Visualize the data
+    print("Visualizing the data")
+    visualize_data(temporal_spatial_mean,temporal_spatial_variance,PLOT_FILE)
+
+    #Output the data to netcdf
+    print("Saving the computed statistics to netcdf")
+    output_data_to_netcdf(OUTPUT_FILE,temporal_spatial_mean,temporal_spatial_variance)
+
+    return
+
+if __name__ == "__main__":
+
+    main()
