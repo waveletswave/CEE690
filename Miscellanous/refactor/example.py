@@ -2,17 +2,20 @@ import netCDF4 as nc
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Load dataset
-file_pointer_input = nc.Dataset('era_interim_monthly_197901_201512_upscaled_annual.nc','r')
-t2m_data = file_pointer_input.variables['t2m'][:]
-
 # Configuration variables
+INPUT_FILE = 'era_interim_monthly_197901_201512_upscaled_annual.nc'
+OUTPUT_FILE = 'out.nc'
+VAR_NAME = 't2m'
 LAT_MIN = 5
 LAT_MAX = 50
 LON_MIN = 10
 LON_MAX = 100
 TIME_MIN = 0
 TIME_MAX = 10
+
+# Load dataset
+file_pointer_input = nc.Dataset(INPUT_FILE,'r')
+t2m_data = file_pointer_input.variables[VAR_NAME][:]
 
 temporal_spatial_mean, temporal_spatial_variance = [], []
 
@@ -70,7 +73,7 @@ plt.show()
 
 #Output the data to netcdf
 file_pointer_output = nc.Dataset('out.nc','w')
-file_pointer_output.createDimension('t',10)
+file_pointer_output.createDimension('t',TIME_MAX-TIME_MIN)
 
 var_v1 = file_pointer_output.createVariable('temporal_spatial_mean','f4',('t',))
 var_v1[:] = temporal_spatial_mean
