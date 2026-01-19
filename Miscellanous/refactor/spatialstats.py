@@ -140,6 +140,6 @@ def main():
 
     return
 
+print('__name__=%s' % __name__)
 if __name__ == "__main__":
-
     main()
