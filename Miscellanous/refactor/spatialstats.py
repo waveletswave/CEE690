@@ -7,6 +7,8 @@ import json
 import netCDF4 as nc
 import numpy as np
 import matplotlib
+import os
+import sys
 matplotlib.use('Agg') # Force Matplotlib to not use any X-Windows backend
 import matplotlib.pyplot as plt
 
@@ -15,6 +17,11 @@ def calculate_spatial_mean(data, config):
 
     # Define the final variable as a list
     temporal_spatial_mean = []
+
+    # Validate indices against data shape
+    if config['TIME_MAX'] > data.shape[0] or config['LAT_MAX'] > data.shape[1] or config['LON_MAX'] > data.shape[2]:
+        print("Error: Configuration indices are out of data bounds.")
+        sys.exit(1)
 
     # Calculate temporally varying spatial mean
     for t in range(data.shape[0]): 
@@ -70,37 +77,59 @@ def calculate_spatial_variance(data, config, temporal_spatial_mean):
 
 def load_dataset(config):
 
-    # Load dataset from netcdf file
-    file_pointer_input = nc.Dataset(config['INPUT_FILE'],'r') 
-    t2m_data = file_pointer_input.variables[config['VAR_NAME']][:]
-    file_pointer_input.close()
+    # Check if file exists
+    if not os.path.exists(config['INPUT_FILE']):
+        print(f"Error: The file {config['INPUT_FILE']} does not exist.")
+        sys.exit(1)
 
-    return t2m_data
+    try:
+        # Load dataset from netcdf file
+        file_pointer_input = nc.Dataset(config['INPUT_FILE'],'r') 
+        
+        # Check if variable exists in file
+        if config['VAR_NAME'] not in file_pointer_input.variables:
+            print(f"Error: Variable '{config['VAR_NAME']}' not found in {config['INPUT_FILE']}.")
+            file_pointer_input.close()
+            sys.exit(1)
+
+        t2m_data = file_pointer_input.variables[config['VAR_NAME']][:]
+        file_pointer_input.close()
+        return t2m_data
+
+    except Exception as e:
+        print(f"An unexpected error occurred while loading the dataset: {e}")
+        sys.exit(1)
 
 def visualize_data(temporal_spatial_mean, temporal_spatial_variance, config):
 
-    # Plot and save the time series
-    plt.plot(temporal_spatial_mean, label="Mean")
-    plt.plot(temporal_spatial_variance, label="Variance")
-    plt.legend()
-    plt.savefig(config['PLOT_FILE'])  # Saves directly to disk
-    plt.close()
+    try:
+        # Plot and save the time series
+        plt.plot(temporal_spatial_mean, label="Mean")
+        plt.plot(temporal_spatial_variance, label="Variance")
+        plt.legend()
+        plt.savefig(config['PLOT_FILE'])  # Saves directly to disk
+        plt.close()
+    except Exception as e:
+        print(f"Error during visualization: {e}")
 
     return
 
 def output_data_to_netcdf(output_file, temporal_spatial_mean, temporal_spatial_variance):
 
-    # Output the data to a netcdf file
-    file_pointer_output = nc.Dataset(output_file,'w')
-    file_pointer_output.createDimension('t',temporal_spatial_mean.shape[0])
+    try:
+        # Output the data to a netcdf file
+        file_pointer_output = nc.Dataset(output_file,'w')
+        file_pointer_output.createDimension('t',temporal_spatial_mean.shape[0])
 
-    var_v1 = file_pointer_output.createVariable('temporal_spatial_mean','f4',('t',))
-    var_v1[:] = temporal_spatial_mean
+        var_v1 = file_pointer_output.createVariable('temporal_spatial_mean','f4',('t',))
+        var_v1[:] = temporal_spatial_mean
 
-    var_v2 = file_pointer_output.createVariable('temporal_spatial_variance','f4',('t',))
-    var_v2[:] = temporal_spatial_variance
+        var_v2 = file_pointer_output.createVariable('temporal_spatial_variance','f4',('t',))
+        var_v2[:] = temporal_spatial_variance
 
-    file_pointer_output.close()
+        file_pointer_output.close()
+    except Exception as e:
+        print(f"Error while saving NetCDF: {e}")
 
     return
 
@@ -117,10 +146,13 @@ def main():
 
     # Override with json info if present
     if config.get('JSON_FILE'):
-        with open(config['JSON_FILE'], 'r') as f:
-            json_config = json.load(f)
-            # This one line replaces all the manual overwriting
-            config.update(json_config)
+        try:
+            with open(config['JSON_FILE'], 'r') as f:
+                json_config = json.load(f)
+                config.update(json_config)
+        except Exception as e:
+            print(f"Error loading JSON config: {e}")
+            sys.exit(1)
 
     # Load dataset
     print("Loading the dataset")
