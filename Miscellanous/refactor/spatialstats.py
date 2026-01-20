@@ -1,3 +1,8 @@
+"""
+This script provides some basic spatial stats to compute on
+some input data and spatial and temporal coordinates.
+"""
+import argparse
 import netCDF4 as nc
 import numpy as np
 import matplotlib
@@ -106,17 +111,20 @@ def main():
     be accessed without running this.
     """
 
+    # Gather arguments from the terminal
+    args = get_args()
+
     # Configuration variables
-    INPUT_FILE = 'era_interim_monthly_197901_201512_upscaled_annual.nc'
-    OUTPUT_FILE = 'out.nc'
-    PLOT_FILE = 'plot.png'
-    VAR_NAME = 't2m'
-    LAT_MIN = 5
-    LAT_MAX = 50
-    LON_MIN = 10
-    LON_MAX = 100
-    TIME_MIN = 0
-    TIME_MAX = 10
+    INPUT_FILE = args.input_file
+    OUTPUT_FILE = args.output_file
+    PLOT_FILE = args.plot_file
+    VAR_NAME = args.var_name
+    LAT_MIN = args.lat_min
+    LAT_MAX = args.lat_max
+    LON_MIN = args.lon_min
+    LON_MAX = args.lon_max
+    TIME_MIN = args.time_min
+    TIME_MAX = args.time_max
 
     # Load dataset
     print("Loading the dataset")
@@ -140,6 +148,31 @@ def main():
 
     return
 
-print('__name__=%s' % __name__)
+def get_args():
+    """Defines and collects command line arguments."""
+    parser = argparse.ArgumentParser(
+        description="Process spatial statistics from netCDF4 data."
+    )
+    
+    # Input/Output paths
+    parser.add_argument('--input_file', type=str, default='era_interim_monthly_197901_201512_upscaled_annual.nc', 
+                        help='Path to the input NetCDF file')
+    parser.add_argument('--output_file', type=str, default='out.nc', 
+                        help='Name of the output NetCDF file')
+    parser.add_argument('--plot_file', type=str, default='plot.png', 
+                        help='Name of the output diagnostic plot')
+    parser.add_argument('--var_name', type=str, default='t2m', 
+                        help='The variable name to extract from the NetCDF')
+    
+    # Bounding Box Arguments
+    parser.add_argument('--lat_min', type=int, default=5)
+    parser.add_argument('--lat_max', type=int, default=50)
+    parser.add_argument('--lon_min', type=int, default=10)
+    parser.add_argument('--lon_max', type=int, default=100)
+    parser.add_argument('--time_min', type=int, default=0)
+    parser.add_argument('--time_max', type=int, default=10)
+    
+    return parser.parse_args()
+
 if __name__ == "__main__":
     main()
