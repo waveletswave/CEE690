@@ -4,12 +4,12 @@ on NetCDF input data across spatial and temporal coordinates.
 """
 import argparse
 import json
+import os
+import sys
 import netCDF4 as nc
 import numpy as np
 import matplotlib
-import os
-import sys
-matplotlib.use('Agg') 
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 class SpatialAnalyzer:
@@ -30,7 +30,7 @@ class SpatialAnalyzer:
             sys.exit(1)
 
         try:
-            file_pointer = nc.Dataset(self.config['INPUT_FILE'], 'r') 
+            file_pointer = nc.Dataset(self.config['INPUT_FILE'], 'r')
             if self.config['VAR_NAME'] not in file_pointer.variables:
                 print(f"Error: Variable '{self.config['VAR_NAME']}' not found.")
                 file_pointer.close()
@@ -47,10 +47,10 @@ class SpatialAnalyzer:
         """Orchestrates the computation of statistics."""
         print("Computing the statistics")
         t_start, t_end = self.config['TIME_MIN'], self.config['TIME_MAX']
-        
+
         # Slicing the subset once to be used by both mean and variance
-        subset = self.data[t_start:t_end, 
-                           self.config['LAT_MIN']:self.config['LAT_MAX'], 
+        subset = self.data[t_start:t_end,
+                           self.config['LAT_MIN']:self.config['LAT_MAX'],
                            self.config['LON_MIN']:self.config['LON_MAX']]
 
         self.means = np.mean(subset, axis=(1, 2))
@@ -92,7 +92,8 @@ class SpatialAnalyzer:
 def get_args():
     """Defines and collects command line arguments."""
     parser = argparse.ArgumentParser(description="Process spatial statistics from netCDF4 data.")
-    parser.add_argument('--INPUT_FILE', type=str, default='era_interim_monthly_197901_201512_upscaled_annual.nc')
+    parser.add_argument('--INPUT_FILE', type=str, 
+                        default='era_interim_monthly_197901_201512_upscaled_annual.nc')
     parser.add_argument('--OUTPUT_FILE', type=str, default='out.nc')
     parser.add_argument('--PLOT_FILE', type=str, default='plot.png')
     parser.add_argument('--VAR_NAME', type=str, default='t2m')
