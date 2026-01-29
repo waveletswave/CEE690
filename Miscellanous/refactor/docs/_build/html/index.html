@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spatial Statistics Analyzer &mdash; Project name not set  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Project name not set
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Spatial Statistics Analyzer</a><ul>
+<li><a class="reference internal" href="#classes">classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spatialstats.SpatialAnalyzer"><code class="docutils literal notranslate"><span class="pre">SpatialAnalyzer</span></code></a><ul>
+<li><a class="reference internal" href="#spatialstats.SpatialAnalyzer.config"><code class="docutils literal notranslate"><span class="pre">SpatialAnalyzer.config</span></code></a></li>
+<li><a class="reference internal" href="#spatialstats.SpatialAnalyzer.data"><code class="docutils literal notranslate"><span class="pre">SpatialAnalyzer.data</span></code></a></li>
+<li><a class="reference internal" href="#spatialstats.SpatialAnalyzer.means"><code class="docutils literal notranslate"><span class="pre">SpatialAnalyzer.means</span></code></a></li>
+<li><a class="reference internal" href="#spatialstats.SpatialAnalyzer.variances"><code class="docutils literal notranslate"><span class="pre">SpatialAnalyzer.variances</span></code></a></li>
+<li><a class="reference internal" href="#spatialstats.SpatialAnalyzer.run_analysis"><code class="docutils literal notranslate"><span class="pre">SpatialAnalyzer.run_analysis()</span></code></a></li>
+<li><a class="reference internal" href="#spatialstats.SpatialAnalyzer.save_netcdf"><code class="docutils literal notranslate"><span class="pre">SpatialAnalyzer.save_netcdf()</span></code></a></li>
+<li><a class="reference internal" href="#spatialstats.SpatialAnalyzer.visualize"><code class="docutils literal notranslate"><span class="pre">SpatialAnalyzer.visualize()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spatialstats.get_args"><code class="docutils literal notranslate"><span class="pre">get_args()</span></code></a></li>
+<li><a class="reference internal" href="#spatialstats.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Project name not set</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Spatial Statistics Analyzer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<section id="spatial-statistics-analyzer">
+<span id="module-spatialstats"></span><h1>Spatial Statistics Analyzer<a class="headerlink" href="#spatial-statistics-analyzer" title="Link to this heading"></a></h1>
+<p>This module provides an Object-Oriented interface for processing weather and climate data
+stored in NetCDF format. It handles data loading, statistical computation
+(spatial mean and variance), visualization, and data export.</p>
+<section id="classes">
+<h2>classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>SpatialAnalyzer</dt><dd><p>The main driver class for the load, transform, save, and plot pipeline.</p>
+</dd>
+</dl>
+</section>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="spatialstats.SpatialAnalyzer">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">spatialstats.</span></span><span class="sig-name descname"><span class="pre">SpatialAnalyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialstats.html#SpatialAnalyzer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialstats.SpatialAnalyzer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to handle the loading, processing, and visualization of spatial
+climate data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spatialstats.SpatialAnalyzer.config">
+<span class="sig-name descname"><span class="pre">config</span></span><a class="headerlink" href="#spatialstats.SpatialAnalyzer.config" title="Link to this definition"></a></dt>
+<dd><p>Configuration dictionary containing file paths and slice indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spatialstats.SpatialAnalyzer.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#spatialstats.SpatialAnalyzer.data" title="Link to this definition"></a></dt>
+<dd><p>The loaded 3D climate and weather dataset (Time x Latitude x Longitude).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spatialstats.SpatialAnalyzer.means">
+<span class="sig-name descname"><span class="pre">means</span></span><a class="headerlink" href="#spatialstats.SpatialAnalyzer.means" title="Link to this definition"></a></dt>
+<dd><p>The computed spatial means over time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spatialstats.SpatialAnalyzer.variances">
+<span class="sig-name descname"><span class="pre">variances</span></span><a class="headerlink" href="#spatialstats.SpatialAnalyzer.variances" title="Link to this definition"></a></dt>
+<dd><p>The computed spatial variances over time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialstats.SpatialAnalyzer.run_analysis">
+<span class="sig-name descname"><span class="pre">run_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialstats.html#SpatialAnalyzer.run_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialstats.SpatialAnalyzer.run_analysis" title="Link to this definition"></a></dt>
+<dd><p>Compute spatial statistics (mean and variance) over the specified dimensions.</p>
+<p>This method uses NumPy vectorization to avoid slow Python loops.
+It reduces the 3D array (Time, Lat, Lon) into 1D arrays (Time)
+by aggregating over the spatial axes (1 and 2).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialstats.SpatialAnalyzer.save_netcdf">
+<span class="sig-name descname"><span class="pre">save_netcdf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialstats.html#SpatialAnalyzer.save_netcdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialstats.SpatialAnalyzer.save_netcdf" title="Link to this definition"></a></dt>
+<dd><p>Export the computed statistics to a new NetCDF file.</p>
+<p>The output file will contain two variables:
+- ‘temporal_spatial_mean’
+- ‘temporal_spatial_variance’
+Both are indexed by a new dimension ‘t’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spatialstats.SpatialAnalyzer.visualize">
+<span class="sig-name descname"><span class="pre">visualize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialstats.html#SpatialAnalyzer.visualize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialstats.SpatialAnalyzer.visualize" title="Link to this definition"></a></dt>
+<dd><p>Generate a diagnostic plot of the computed statistics.</p>
+<p>Saves a PNG file comparing the trend of Mean vs Variance over time.
+Uses the file path specified in config[‘PLOT_FILE’].</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spatialstats.get_args">
+<span class="sig-prename descclassname"><span class="pre">spatialstats.</span></span><span class="sig-name descname"><span class="pre">get_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialstats.html#get_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialstats.get_args" title="Link to this definition"></a></dt>
+<dd><p>Parse command-line arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The populated namespace of arguments.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>argparse.Namespace</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="spatialstats.main">
+<span class="sig-prename descclassname"><span class="pre">spatialstats.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialstats.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialstats.main" title="Link to this definition"></a></dt>
+<dd><p>Main execution entry point.</p>
+<p>Workflow:
+1. Parse CLI arguments.
+2. If a JSON file is provided, update/override CLI args with JSON values.
+3. Initialize the SpatialAnalyzer.
+4. Run analysis, visualization, and export.</p>
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
