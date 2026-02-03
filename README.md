@@ -40,10 +40,10 @@ Note that the schedule is subject to change (and will change).
 |01/20|Software architecture II|-|
 |01/22|Verification and profiling|Proposal 1 due|
 |01/27|Packaging, automation and documentation|-|
-|01/29|Computing on spatial grids|-|
+|01/29|Anatomy of an HPC cluster|-|
 |02/03|GPU computing in Python|-|
 |02/05|High-Speed kernels: Numba CPU & CUDA|-|
-|02/10|Anatomy of an HPC cluster|-|
+|02/10|Computing on spatial grids|-|
 |02/12|Shared memory parallelism I|-|
 |02/17|Distributed memory parallelism I|-|
 |02/19|The scheduler|-|
