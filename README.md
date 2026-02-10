@@ -42,9 +42,9 @@ Note that the schedule is subject to change (and will change).
 |01/27|Profiling and documentation|-|
 |01/29|Packaging, automation, and HPC clusters I|-|
 |02/03|HPC clusters II|-|
-|02/05|GPU computing in Python|-|
+|02/05|Shared memory parallelism I|-|
 |02/10|High-Speed kernels: Numba CPU & CUDA|-|
-|02/12|Shared memory parallelism I|-|
+|02/12|GPU computing in Python|-|
 |02/17|Distributed memory parallelism I|-|
 |02/19|Computing on spatial grids|-|
 |02/24|High-Performance I/O|-|
