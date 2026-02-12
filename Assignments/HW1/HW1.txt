@@ -1,4 +1,14 @@
 0. Make a Github repository for the course 
 1. Install miniconda and create your own environment that has numba, rasterio, matplotlib, scikit-learn. Save the environment configuration to a .yml file and submit that file. 
-1. Create and upload a custom vimrc. It needs to have 5 features that you added to it. Add comments in the vimrc describe those unique features.
-2. Create and upload a custom bashrc. It needs to have 5 features that you added to it. Add comments in the bashrc describe those unique features.
+2. Create and upload a custom vimrc. It needs to have 5 features that you added to it. Add comments in the vimrc describe those unique features.
+3. Create and upload a custom bashrc. It needs to have 5 features that you added to it. Add comments in the bashrc describe those unique features.
+4. Ensure that your code is following a style guide (e.g., PEP-8). 
+5. Your code must have the possibility of using either command line arguments and/or a text/json/xml file as input. 
+6. Write at least 20 unit tests for your project.
+7. Ensure you have a Readme and sphinx documentation for your project.
+8. Enable GitHub automation for your project.
+9. Ensure your code is "ready for pip".
+10. Create some nested for loops and use Numba and enable shared parallelism. The number of threads use should be specified as a software input parameter.
+11. Use functions and classes throughout your project. Avoid spaghetti code practices at all cost. 
+12. Make sure the code is ready to go. I will install and run a test of it on the DCC. 
+
