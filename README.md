@@ -39,15 +39,15 @@ Note that the schedule is subject to change (and will change).
 |01/15|Software architecture I|-|
 |01/20|Software architecture II|-|
 |01/22|Verification|Proposal 1 due|
-|01/27|Profiling and documentation|-|
-|01/29|Packaging, automation, and HPC clusters I|-|
-|02/03|HPC clusters II|-|
-|02/05|Shared memory parallelism I|-|
-|02/10|High-Speed kernels: Numba CPU & CUDA|-|
-|02/12|GPU computing in Python|-|
-|02/17|Distributed memory parallelism I|-|
-|02/19|Computing on spatial grids|-|
-|02/24|High-Performance I/O|-|
+|01/27|-|-|
+|01/29|Profiling and documentation|-|
+|02/03|Packaging, automation, and HPC clusters I|-|
+|02/05|HPC clusters II|-|
+|02/10|Shared memory parallelism I|-|
+|02/12|Distributed memory parallelism I|-|
+|02/17|GPU computing in Python|-|
+|02/19|High-Performance I/O|-|
+|02/24|Computing on spatial grids|-|
 |02/26|TBD|Project 1/Homework 1 due|
 
 **Part II: Compiled languages**
